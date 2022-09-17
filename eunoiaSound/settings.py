@@ -51,7 +51,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-AUTH_USER_MODEL = 'api.User'
+#AUTH_USER_MODEL = 'api.User'
 
 REST_FRAMEWORK = {
   'DEFAULT_PERMISSION_CLASSES': (
