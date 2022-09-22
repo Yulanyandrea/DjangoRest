@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -39,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'api',
+    
 ]
 
 MIDDLEWARE = [
@@ -51,7 +53,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-#AUTH_USER_MODEL = 'api.User'
+AUTH_USER_MODEL = 'api.User'
 
 REST_FRAMEWORK = {
   'DEFAULT_PERMISSION_CLASSES': (
@@ -106,7 +108,7 @@ WSGI_APPLICATION = 'eunoiaSound.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': config('DB_DRIVER'),
-        'NAME': config('DB_NAME'),
+        'NAME': config('DB_DATABASE'),
         'USER': config('DB_USER'),
         'PASSWORD': config('DB_PASSWORD'),
         'HOST': config('DB_HOST'),
@@ -141,6 +143,8 @@ AUTH_PASSWORD_VALIDATORS = [
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
+
+DATE_INPUT_FORMATS =  ['/%Y/%M/%D']
 
 USE_I18N = True
 

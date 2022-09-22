@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.hashers import make_password
-#from django.contrib.auth.hashers import BaseUserManager,AbstractBaseUser,PermissionsMixin
+
 from django.contrib.auth.models import AbstractBaseUser
 from django.contrib.auth.models import BaseUserManager
 from django.contrib.auth.models import PermissionsMixin
@@ -14,10 +14,12 @@ class UserManager(BaseUserManager):
         user.save(using=self._db)
         return user
     def create_superuser(self,username,password):
+       
         user=self.create_user(
-            username=username,
+           username=username,
             password=password
         )
+       
         user.is_admin=True
         user.save(using=self._db)
         return user
@@ -32,12 +34,9 @@ class User (AbstractBaseUser,PermissionsMixin):
 
 #esto es para convertir a contraseña en no un texto plano
     def save(self,**kwargs): #aqui se espera un diccionario de variables
-     some_salt='hdfsieuwurijdsir' #colocarle una llave 
+     some_salt='mMUj0DrIK6vgtdIYepkIxN' #colocarle una llave 
      self.password=make_password(self.password,some_salt)
      super().save(**kwargs)
-
-
-
 
     objects= UserManager()
     USERNAME_FIELD='username'
