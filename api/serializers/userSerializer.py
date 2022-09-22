@@ -6,6 +6,6 @@ class UserSerializer(serializers.ModelSerializer):
     tasks= TaskSerializer(many=True,read_only=True)
     class Meta:
         model=User
-        fields=['id','username','password','name','email','task']
+        fields=['id','username','password','name','email','tasks']
     
     

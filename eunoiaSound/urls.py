@@ -1,4 +1,3 @@
-from django.contrib import admin
 from django.urls import path
 from api import views
 from api.views import taskView
@@ -11,17 +10,17 @@ from rest_framework.routers import DefaultRouter
 from api.views.taskView import TaskView
 
 router=DefaultRouter()
-router.register(r'task',TaskView, basename='task')
+router.register(r'tasks',TaskView, basename='tasks')
 
 
 urlpatterns = [
     
     
-    path('login/',TokenObtainPairView.as_view()),
+    #path('login/',TokenObtainPairView.as_view()),
     path('refresh/',TokenRefreshView.as_view()),
     path('user/',UserCreateView.as_view()),
     path('user/<int:pk>/',UserDetailView.as_view()), #pk primary key
-   # path('task/',TaskView.as_view())
+ 
 ]
 
 urlpatterns+=router.urls
